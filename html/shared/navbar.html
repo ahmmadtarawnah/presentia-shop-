@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        nav {
+            background-color: #F9ECE6;
+            color: #514F4F;
+            position: relative;
+        }
+        nav a, nav button {
+            color: #514F4F;
+        }
+        .login-gtn {
+            background-color: #514F4F;
+            color: white;
+        }
+        .hamburger-menu {
+            background-color: #F9ECE6;
+        }
+        .logo{
+            font-family: cursive;
+            font-size: large;
+        }
+        .links:hover{
+            font-size: large;
+            margin-left: 0.5rem; 
+        }
+    </style>
+</head>
+<body>
+    <header> 
+        <!--x-show="open": Dynamically shows or hides the mobile menu-->
+        <nav x-data="{ open: false }" class="bg-[#F9ECE6] text-[#514F4F] shadow-lg w-full">
+            <div class="container mx-auto flex justify-between items-center h-16 px-4 md:px-8">
+                <!-- Logo -->
+                <div class="logo flex items-center">
+                    <a href="home.html" class="font-semibold text-xl">Presentia</a>
+                </div>
+                
+                <!-- Search Bar -->
+                <div class="flex items-center w-1/2 lg:w-1/3">
+                    <div class="relative w-full">
+                        <input  type="text" placeholder="Search..." class="rounded-full border border-gray-300 px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-gray-400" />
+                        <button class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 focus:outline-none">
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Desktop Links -->
+                <div class="hidden lg:flex items-center space-x-6">
+                    <a href="home.html"    class="links">Home</a>
+                    <a href="shop.html"    class="links">Shop</a>
+                    <a href="contact.html" class="links" onclick="window.location.href='login.html';">Contact</a>
+                    <a href="about.html"   class="links" onclick="window.location.href='login.html';">About Us</a>
+                </div>
+                
+                <!-- Buttons -->
+                <div class="hidden lg:flex items-center space-x-4">
+                    <a href="login.html">
+                        <button class="login-gtn py-2 px-4 rounded-full bg-[#514F4F] text-white hover:bg-gray-700">
+                          Login
+                        </button>
+                      </a>                   
+                    <a href="register.html">
+                        <button class="py-2 px-4 rounded-full bg-white hover:bg-gray-100">
+                          Sign Up
+                        </button>
+                    </a>                 
+                </div>
+                
+                <!-- Hamburger Menu -->
+                <button class="lg:hidden text-gray-500 focus:outline-none" @click="open = !open">
+                    <div class="w-6 h-6 flex flex-col justify-between items-center">
+                        <span class="block h-0.5 w-full bg-current"></span>
+                        <span class="block h-0.5 w-full bg-current"></span>
+                        <span class="block h-0.5 w-full bg-current"></span>
+                    </div>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div x-show="open" class="hamburger-menu lg:hidden bg-[#F9ECE6] text-[#514F4F] absolute top-16 left-0 w-full z-10">
+                <div class="flex flex-col items-center space-y-4 py-4">
+                    <a href="home.html"    class="links">Home</a>
+                    <a href="shop.html"    class="links">Shop</a>
+                    <a href="contact.html" class="links">Contact</a>
+                    <a href="about.html"   class="links">About Us</a>
+                    <a href="login.html">
+                        <button class="login-gtn py-2 px-4 rounded-full bg-[#514F4F] text-white hover:bg-gray-700">
+                            Login
+                        </button>
+                    </a>
+                    <a href="register.html">
+                        <button class="py-2 px-4 rounded-full bg-white hover:bg-gray-100">
+                            Sign Up
+                        </button>
+                    </a>                
+                </div>
+            </div>
+        </nav>
+    </header>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script type="module" src="/Presentia/js/shared/auth.js"></script>
+    <script type="module" src="/Presentia/js/shared/navbar.js"></script>
+</body>
+</html>

@@ -1,0 +1,336 @@
+:root {
+    --primary-color: #f9d2da;
+    --background-color: #F3F4F6;
+    --help-links: #646464;
+    --container: #FFFFFF;
+    --text-color: #333;
+    --shadow: rgba(0, 0, 0, 0.1);
+    --border: #ddd;
+}
+/* --------------------------------- Page ------------------------------ */
+
+.page {
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+    padding: 20px;
+}
+
+        /* ------------------- Left ------------------- */
+.left-section {
+    flex: 1;
+    position: relative;
+    color: var(--background-color);
+    animation: fadeIn 2s ease-in-out;
+    overflow: hidden;
+}
+
+.left-section video {
+    border-radius: 3%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    z-index: -1;
+}
+
+.text-overlay {
+    background-color: rgba(0, 0, 0, 0.5); 
+    padding: 20px;
+    text-align: center;
+    color: #fff; 
+    z-index: 1;
+}
+
+.text-overlay h1 {
+    font-size: 3rem;
+    font-family: 'Cursive', sans-serif;
+    margin-bottom: 1rem;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.text-overlay p {
+    font-size: 1.2rem;
+    font-family: 'Arial', sans-serif;
+    animation: fadeIn 2s ease-in-out;
+}
+
+
+        /* ------------------- Right ------------------- */
+.right-section {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+                /* ---------- Card ---------- */
+.login-card {
+    min-width: 45%;
+
+}
+
+.login-card:hover{
+    margin-top: 0.2rem;
+}
+
+.login-title {
+    font-family: Cursive;
+    text-align: center;
+    color: var(--primary-color);
+    font-size: 3rem;
+    margin-bottom: 3.5rem;
+    background: linear-gradient(270deg, #000000, #000000, #f88da3, #f74166);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textColorChange 5s ease-in-out infinite;
+}
+                /* ---------- Form ---------- */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background-color: var(--container);
+    padding: 10px;
+}
+
+.form-group:hover {
+    border: 4px solid #f9d2da;
+}
+
+.form-group input {
+    border: none;
+    outline: none;
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    background: none;
+}
+
+.form-group select {
+    border: none;
+    outline: none;
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    background: none;
+}
+
+.forgot-link {
+    font-size: 14px;
+    color: var(--help-links);
+    text-decoration: none;
+    margin: 1px 10px 10px;
+    text-align: left;
+}
+
+.forgot-link:hover {
+    text-decoration: underline;
+}
+
+.login-btn {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.login-btn:hover {
+    color: var(--primary-color);
+    font-size: larger;
+    font-weight: bolder;
+    box-shadow: 0 4px 12px var(--shadow);
+}
+                /* ----- Middle of Form ----- */
+.divider {
+    margin: 20px 0;
+    position: relative;
+    text-align: center;
+    font-size: 14px;
+    color: var(--help-links);
+}
+
+.divider:before,
+.divider:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 40%;
+    height: 1px;
+    background-color: var(--border);
+}
+
+.divider:before {
+    left: 0;
+}
+
+.divider:after {
+    right: 0;
+}
+
+.google-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: var(--text-color);
+    color: var(--container);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.google-btn:hover {
+    background-color: black;
+    color: white;
+}
+
+.buttons-links {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.button-link {
+    text-decoration: none;
+    font-size: 14px;
+    color: var(--help-links);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid var(--border);
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.button-link:hover {
+    font-family: 'Times New Roman', Times, serif;
+    background-color: var(--text-color);
+    color: var(--container);
+    border-color: var(--text-color);
+    box-shadow: 0 4px 12px var(--shadow);
+    transform: translateY(-5px);
+    transition: all 0.5s ease;
+    font-size: larger;
+}
+
+.button-link i {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+/* --------------------------------- Animations ------------------------------ */
+
+@keyframes zoomIn {
+    0% {
+    opacity: 0;
+    transform: scale(0.8);
+    }
+    100% {
+    opacity: 1;
+    transform: scale(1);
+    }
+}
+
+@keyframes textColorChange {
+    0% {
+    background-position: 0% 50%;
+    }
+    50% {
+    background-position: 100% 50%;
+    }
+    100% {
+    background-position: 0% 50%;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* --------------------------------- Mobile ------------------------------ */
+
+@media only screen and (max-width: 600px) {
+    .left-section {
+        display: none !important;
+    }
+    .right-section {
+        padding: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-sizing: border-box;
+    }
+    .login-card {
+        width: 100%;
+        padding: 1.5rem;
+        box-shadow: 0px 0px !important;
+        border-radius: 8px;
+        background-color: #fff;
+        box-sizing: border-box;
+    }
+    form {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .left-section {
+        display: none !important;
+    }
+    .right-section {
+        margin-top: 25%;
+        height: 100%;
+        padding: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-sizing: border-box;
+    }
+    .login-card {
+        width: 100%;
+        padding: 1.5rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        background-color: #fff;
+        box-sizing: border-box;
+    }
+    form {
+        width: 100%;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

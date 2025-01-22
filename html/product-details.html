@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <link href="../css/product-details.css" rel="stylesheet">
+    <title>Presentia</title>
+    <style>
+        
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav id="navbar-placeholder"></nav>
+
+    <div class="container my-5">
+        <div class="row product-section">
+            <div class="row d-flex">
+                <!-- Product Image -->
+                <div class="col-lg-6 col-md-12">
+                    <div class="pro-img-details">
+                        <img src="your-product-image.jpg" alt="Product Image">
+                    </div>
+                </div>
+                <!-- Product Details -->
+                <div class="col-lg-6 col-md-12">
+                    <h4 class="pro-d-title">
+                        <a href="#">Product Title</a>
+                    </h4>
+                    <p class="details">This is a short description of the product that highlights its features and
+                        benefits in an engaging way.</p>
+                    <div class="product_meta">
+                        <span class="posted_in"><strong>Category:</strong> Electronics</span>
+                    </div>
+                    <div class="price mt-3">Price: <span class="pro-price">$299.99</span></div>
+                    <button class="btn btn-danger mt-4">
+                        <i class="fa fa-shopping-cart"></i> Buy Now
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Reviews Section -->
+        <div class="row reviews-section">
+            <div class="col-md-12">
+                <h4>Customer Reviews</h4>
+                <div class="reviews">
+                    <!-- Reviews will be dynamically inserted here -->
+                </div>
+                <h4>Add a Comment</h4>
+                <form>
+                    <!-- Star Rating -->
+                    <div class="star-rating mb-3">
+                        <input type="radio" id="star5" name="rating" value="5">
+                        <label for="star5" title="5 stars">&#9733;</label>
+                        <input type="radio" id="star4" name="rating" value="4">
+                        <label for="star4" title="4 stars">&#9733;</label>
+                        <input type="radio" id="star3" name="rating" value="3">
+                        <label for="star3" title="3 stars">&#9733;</label>
+                        <input type="radio" id="star2" name="rating" value="2">
+                        <label for="star2" title="2 stars">&#9733;</label>
+                        <input type="radio" id="star1" name="rating" value="1">
+                        <label for="star1" title="1 star">&#9733;</label>
+                    </div>
+                    <!-- Comment Textarea -->
+                    <div class="form-group">
+                        <textarea class="form-control" rows="3" placeholder="Write your comment here..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+        <!-- Footer -->
+        <footer id="footer-placeholder"></footer>
+
+        <!-- JS Scripts -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+        <script src="../js/shared/navbar.js" type="module" defer></script>
+        <script src="../js/shared/footer.js" defer></script>
+        <script src="../js/product-details.js" type="module"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

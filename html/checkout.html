@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@2.x.x/dist/alpine.min.js" defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/checkout.css">
+    <title>Presentia</title>
+    <style>
+        /* Modal CSS */
+        .modal {
+            display: none;
+            /* Hidden by default */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            /* Semi-transparent background */
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            width: 50%;
+            text-align: center;
+        }
+
+        .modal-header {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .modal-body {
+            margin-top: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .modal-footer {
+            margin-top: 1.5rem;
+        }
+
+        .btn-close {
+            background-color: red;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav id="navbar-placeholder"></nav>
+
+    <div class="container">
+        <h1 class="title h3 mb-5">Payment</h1>
+        <div class="row">
+            <!-- Left -->
+            <div class="col-lg-9">
+                <div x-data="{ paymentMethod: 'creditCard' }">
+                    <div class="accordion" id="accordionPayment">
+                        <!-- Credit Card -->
+                        <div class="accordion-item mb-3">
+                            <h2 class="h5 px-4 py-3 accordion-header d-flex justify-content-between align-items-center">
+                                <div class="form-check w-100 collapsed" @click="paymentMethod = 'creditCard'"
+                                    :class="{'active': paymentMethod === 'creditCard'}">
+                                    <input class="form-check-input" type="radio" name="payment" id="payment1">
+                                    <label class="form-check-label pt-1" for="payment1">
+                                        Credit Card
+                                    </label>
+                                </div>
+                                <span>
+                                    <i class="bi bi-credit-card" style="font-size: 1.5rem; color: blue;"></i>
+                                </span>
+                            </h2>
+                            <div x-show="paymentMethod === 'creditCard'" id="collapseCC"
+                                class="accordion-collapse collapse show" data-bs-parent="#accordionPayment">
+                                <div class="accordion-body">
+                                    <div class="mb-3">
+                                        <label class="form-label">Card Number</label>
+                                        <input type="text" class="form-control" placeholder="">
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="mb-3">
+                                                <label class="form-label">Name on card</label>
+                                                <input type="text" class="form-control" placeholder="" />
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3">
+                                            <div class="mb-3">
+                                                <label class="form-label">Expiry date</label>
+                                                <input type="text" class="form-control" placeholder="MM/YY">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3">
+                                            <div class="mb-3">
+                                                <label class="form-label">CVV Code</label>
+                                                <input type="password" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- PayPal -->
+                        <div class="accordion-item mb-3 border">
+                            <h2 class="h5 px-4 py-3 accordion-header d-flex justify-content-between align-items-center">
+                                <div class="form-check w-100 collapsed" @click="paymentMethod = 'paypal'"
+                                    :class="{'active': paymentMethod === 'paypal'}">
+                                    <input class="form-check-input" type="radio" name="payment" id="payment2">
+                                    <label class="form-check-label pt-1" for="payment2">
+                                        PayPal
+                                    </label>
+                                </div>
+                                <span>
+                                    <i class="bi bi-paypal" style="font-size: 1.5rem; color: #0070ba;"></i>
+                                </span>
+                            </h2>
+                            <div x-show="paymentMethod === 'paypal'" id="collapsePP"
+                                class="accordion-collapse collapse show" data-bs-parent="#accordionPayment">
+                                <div class="accordion-body">
+                                    <div class="mb-3">
+                                        <label class="form-label">Email</label>
+                                        <input type="email" class="form-control" placeholder="Your PayPal Email">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Cash on Delivery -->
+                        <div class="accordion-item mb-3 border">
+                            <h2 class="h5 px-4 py-3 accordion-header d-flex justify-content-between align-items-center">
+                                <div class="form-check w-100 collapsed" @click="paymentMethod = 'cod'"
+                                    :class="{'active': paymentMethod === 'cod'}">
+                                    <input class="form-check-input" type="radio" name="payment" id="payment3">
+                                    <label class="form-check-label pt-1" for="payment3">
+                                        Cash on Delivery
+                                    </label>
+                                </div>
+                                <span>
+                                    <i class="bi bi-cash-coin" style="font-size: 1.5rem; color: green;"></i>
+                                </span>
+                            </h2>
+                            <div x-show="paymentMethod === 'cod'" id="collapseCOD"
+                                class="accordion-collapse collapse show" data-bs-parent="#accordionPayment">
+                                <div class="accordion-body">
+                                    <p>No additional details are required for Cash on Delivery. Please ensure you have
+                                        the exact amount ready upon delivery.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right -->
+            <div class="col-lg-3">
+                <div class="card position-sticky top-0">
+                    <div class="p-3 bg-light bg-opacity-10">
+                        <h6 class="card-title mb-3">Order Summary</h6>
+                        <hr>
+                        <div class="d-flex justify-content-between mb-4 small">
+                            <p>Total Price: <strong class="checkout-total">$0.00</strong></p>
+                        </div>
+                        <div class="form-check mb-1 small">
+                            <input class="form-check-input" type="checkbox" value="" id="tnc">
+                            <label class="form-check-label" for="tnc" aria-required="true">
+                                I agree to the <a href="#">terms and conditions</a>
+                            </label>
+                        </div>
+                        <div class="form-check mb-3 small">
+                            <input class="form-check-input" type="checkbox" value="" id="subscribe"
+                                aria-required="true">
+                            <label class="form-check-label" for="subscribe">
+                                Get emails about product updates and events. If you change your mind, you can
+                                unsubscribe at any time. <a href="#">Privacy Policy</a>
+                            </label>
+                        </div>
+                        <button id="chk" class="btn btn-primary w-100 mt-2" onclick="showModal()">Place order</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5>Success!</h5>
+                <span class="close" onclick="closeModal()">&times;</span>
+
+            </div>
+            <div class="modal-body">
+                <p>Your order has been successfully placed!</p>
+            </div>
+            <div class="modal-footer">
+            <a href="../html/home.html">
+                <button class="btn btn-secondary" onclick="closeModal()">Exit</button>
+            </a>
+            <a href="../html/shop.html">
+                <button class="btn btn-success" onclick="closeModal()">Shop Again</button>
+            </a>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script>
+        function showModal() {
+            document.getElementById('successModal').style.display = 'flex';
+        }
+        function closeModal() {
+            document.getElementById('successModal').style.display = 'none';
+        }
+    </script>
+
+    <script src="../js/shared/navbar.js" type="module" defer></script>
+    <script src="../js/checkout.js" type="module"></script>
+</body>
+
+</html>

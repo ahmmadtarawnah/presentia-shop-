@@ -1,0 +1,376 @@
+:root {
+  --button-bg-color: #ea667c; 
+  --button-hover-bg-color: gray; 
+  --dropdown-bg-color: #f14e66; 
+  --card-bg-color: #efe8e8;
+  --button-text-color:#efe8e8;
+  
+}
+
+/* shop section  */
+.layout_padding {
+  padding-top: 90px;
+  padding-bottom: 90px;
+}
+.heading_container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.heading_container h2 {
+  text-transform: uppercase;
+  font-weight: bold;
+  
+}
+
+.heading_container h2  {
+  color:black;
+}
+
+.heading_container.heading_center {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+}
+
+.shop_section .heading_container {
+  margin-bottom: 20px;
+}
+
+ /* filter */
+ .text {
+   color: #db4f66;
+ }
+
+.row.align-items-center {
+  margin-bottom: -60px; 
+}
+ /* dropDown  */
+ .dropdown {
+  margin-bottom: 5px; 
+}
+@media (max-width: 768px) {
+  .dropdown {
+      margin-bottom: 5px; 
+  }
+}
+ .select {
+   width: fit-content;
+   cursor: pointer;
+   position: relative;
+   transition: 300ms;
+   color: white;
+   overflow: hidden;
+ }
+ 
+ .selected {
+   background-color: var(--dropdown-bg-color);
+   padding: 5px;
+   margin-bottom: 3px;
+   border-radius: 5px;
+   position: relative;
+   z-index: 100000;
+   font-size: 15px;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+ }
+ 
+ .arrow {
+   position: relative;
+   right: 0px;
+   height: 10px;
+   transform: rotate(-90deg);
+   width: 25px;
+   fill: white;
+   z-index: 100000;
+   transition: 300ms;
+ }
+ 
+ .options {
+   display: flex;
+   flex-direction: column;
+   border-radius: 5px;
+   padding: 5px;
+   background-color:var(--dropdown-bg-color);
+   position: relative;
+   top: -100px;
+   opacity: 0;
+   transition: 300ms;
+ }
+ 
+ .select:hover > .options {
+   opacity: 1;
+   top: 0;
+ }
+ 
+ .select:hover > .selected .arrow {
+   transform: rotate(0deg);
+ }
+ 
+ .option {
+   border-radius: 5px;
+   padding: 5px;
+   transition: 300ms;
+   background-color: var(--dropdown-bg-color);
+   width: 150px;
+   font-size: 15px;
+ }
+ .option:hover {
+  color: #323741;
+ }
+ 
+ .options input[type="radio"] {
+   display: none;
+ }
+ 
+ .options label {
+   display: inline-block;
+ }
+ .options label::before {
+   content: attr(data-txt);
+ }
+ 
+ .options input[type="radio"]:checked + label {
+   display: none;
+ }
+ 
+ .options input[type="radio"]#all:checked + label {
+   display: none;
+ }
+ 
+ .select:has(.options input[type="radio"]#all:checked) .selected::before {
+   content: attr(data-default);
+ }
+ .select:has(.options input[type="radio"]#option-1:checked) .selected::before {
+   content: attr(data-one);
+ }
+ .select:has(.options input[type="radio"]#option-2:checked) .selected::before {
+   content: attr(data-two);
+ }
+ .select:has(.options input[type="radio"]#option-3:checked) .selected::before {
+   content: attr(data-three);
+ }
+
+/* Cards Section */
+.shop_section .box {
+  background-color: var(--card-bg-color, #ffffff); /* Fallback white color */
+  position: relative;
+  padding: 15px;
+  margin-top: 50px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Increased shadow for depth */
+  height: 450px;
+  transition: transform 0.5s ease, box-shadow 0.3s ease; /* Smooth transitions */
+  border-radius: 15px; /* Rounded corners for a modern look */
+  overflow: hidden; /* For rounded corners on image overflow */
+}
+
+.shop_section .box:hover {
+  transform: translateY(-5px); /* Lift the card slightly */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+}
+
+/* Card Link Styling */
+.shop_section .box a {
+  color: #000000;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.shop_section .box a:hover {
+  color: var(--button-hover-bg-color, #1e88e5); /* Match hover color with button */
+}
+
+/* Image Box */
+.shop_section .box .img-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  height: 200px;
+  background-color: #f8f8f8; /* Subtle background for images */
+  border-radius: 10px;
+}
+
+.shop_section .box .img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px; /* Rounded image corners */
+  transition: transform 0.5s ease;
+}
+
+.shop_section .box:hover .img-box img {
+  transform: scale(1.1); /* Slight zoom effect on hover */
+}
+
+/* Detail Box */
+.shop_section .box .detail-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 5px;
+}
+
+.shop_section .box .detail-box h6 span {
+  color: #db4f66; /* Highlighted text */
+  font-weight: bold;
+}
+
+/* Description */
+.shop_section .description p {
+  text-align: left;
+  padding: 10px;
+  font-size: 14px;
+  line-height: 1.6; /* Better readability */
+  color: #6c757d; /* Soft grey for text */
+}
+
+/* Buy Now Button */
+.buy-now {
+  position: relative;
+  font-size: 14px;
+  padding: 12px 25px; /* Larger padding for better click area */
+  margin-top: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  white-space: nowrap;
+  border: none;
+  border-radius: 30px; /* Fully rounded button */
+  color: var(--button-text-color, #ffffff);
+  background-color: var(--button-bg-color, #ff6f61);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 12px rgba(255, 111, 97, 0.3); /* Color-coordinated shadow */
+}
+
+.buy-now:hover {
+  background-color: var(--button-hover-bg-color, #e85c50); /* Modern hover effect */
+  transform: scale(1.1); /* Slight scale for hover interaction */
+}
+
+ /* icon  */
+.position-absolute {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  width: 3rem;
+  height: 3rem;
+  background-color: white;
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Adding box-shadow transition */
+}
+
+.position-absolute:hover {
+  transform: scale(1.2); /* Slightly more noticeable scaling */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Increase shadow on hover for depth */
+}
+
+.position-absolute i {
+  font-size: 1.5rem;
+  color: #db4f66; /* Match the icon color to the button's theme */
+  transition: transform 0.3s ease, color 0.3s ease; /* Smooth color and scale transitions */
+}
+
+.position-absolute:hover i {
+  transform: scale(1.2); /* Slightly enlarge the icon */
+}
+
+.hero-section {
+  background-image: url('https://via.placeholder.com/1200x600'); /* Replace with a real image URL */
+  background-size: cover;
+  background-position: center;
+  padding: 100px 0;
+  color: rgb(58, 58, 58);
+  text-align: center;
+  position: relative;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(254, 177, 177, 0.5); /* Dark overlay */
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.hero-description {
+  font-size: 1.25rem;
+  margin-bottom: 40px;
+}
+
+.select-section {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* General Styling for Search Bar */
+#search-bar {
+  width: 100%; /* Full width */
+  max-width: 500px; /* Optional: Restrict max width for larger screens */
+  border: 1px solid #d1d5db; /* Light gray border */
+  border-radius: 50px; /* Fully rounded corners */
+  padding: 10px 20px; /* Inner padding for better spacing */
+  font-size: 16px; /* Comfortable font size */
+  transition: all 0.3s ease; /* Smooth transition for hover and focus effects */
+  color: #333; /* Text color */
+  background-color: #f9f9f9; /* Light gray background */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Focus Effect */
+#search-bar:focus {
+  outline: none; /* Remove default browser outline */
+  border-color: #1e88e5; /* Blue border on focus */
+  box-shadow: 0 0 8px rgba(30, 136, 229, 0.5); /* Subtle blue glow */
+  background-color: #ffffff; /* Pure white background */
+}
+
+/* Hover Effect */
+#search-bar:hover {
+  border-color: #9ca3af; /* Slightly darker gray on hover */
+}
+
+/* Wrapper Styling */
+.relative {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  #search-bar {
+    font-size: 14px; /* Adjust font size for smaller screens */
+    padding: 8px 15px; /* Adjust padding for smaller screens */
+  }
+}
